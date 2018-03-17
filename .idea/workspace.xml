@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88f5a058-2f8b-438d-8858-150ee55d812a" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/components/screens/DetailsScreen.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/App.js" afterPath="$PROJECT_DIR$/App.js" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/src/components/CoinContainer.js" afterPath="$PROJECT_DIR$/src/components/CoinContainer.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/SettingScreen.js" afterPath="$PROJECT_DIR$/src/components/screens/SettingScreen.js" />
+      <change beforePath="$PROJECT_DIR$/src/components/screens/DetailsScreen.js" afterPath="$PROJECT_DIR$/src/components/screens/DetailsScreen.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,24 +21,21 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="19" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="19" />
-              <folding />
+            <state relative-caret-position="221">
+              <caret line="49" column="59" lean-forward="true" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DetailsScreen.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DetailsScreen.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/screens/DetailsScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-                <element signature="e#185#253#0" expanded="false" />
-                <element signature="e#278#937#0" expanded="false" />
-                <element signature="e#951#1354#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="1" column="40" lean-forward="false" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -52,18 +46,6 @@
             <state relative-caret-position="17">
               <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CoinContainer.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/CoinContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="511">
-              <caret line="71" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -95,7 +77,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>impo</find>
       <find>details</find>
+      <find>import</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -109,10 +93,10 @@
         <option value="$PROJECT_DIR$/src/components/HomeScreen.js" />
         <option value="$PROJECT_DIR$/src/components/SettingScreen.js" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/components/screens/DetailsScreen.js" />
-        <option value="$PROJECT_DIR$/App.js" />
         <option value="$PROJECT_DIR$/src/components/screens/SettingScreen.js" />
         <option value="$PROJECT_DIR$/src/components/CoinContainer.js" />
+        <option value="$PROJECT_DIR$/App.js" />
+        <option value="$PROJECT_DIR$/src/components/screens/DetailsScreen.js" />
       </list>
     </option>
   </component>
@@ -224,7 +208,7 @@
       <option name="presentableId" value="Default" />
       <updated>1521216820808</updated>
       <workItem from="1521216821967" duration="9079000" />
-      <workItem from="1521228172232" duration="14490000" />
+      <workItem from="1521228172232" duration="16338000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;clean readme file&quot;">
       <created>1521220117288</created>
@@ -237,7 +221,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23569000" />
+    <option name="totallyTimeSpent" value="25417000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -282,7 +266,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="41" column="117" lean-forward="false" selection-start-line="41" selection-start-column="53" selection-end-line="41" selection-end-column="117" />
-          <folding />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -342,24 +328,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/screens/DetailsScreen.js">
+    <entry file="file://$PROJECT_DIR$/src/components/CoinContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state relative-caret-position="205">
+          <caret line="53" column="35" lean-forward="true" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <element signature="e#185#253#0" expanded="false" />
-            <element signature="e#278#937#0" expanded="false" />
-            <element signature="e#951#1354#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="19" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -371,13 +346,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CoinContainer.js">
+    <entry file="file://$PROJECT_DIR$/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="71" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+        <state relative-caret-position="221">
+          <caret line="49" column="59" lean-forward="true" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/screens/DetailsScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="40" lean-forward="false" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>

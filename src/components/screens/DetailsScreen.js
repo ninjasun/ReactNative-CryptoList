@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet,  View, Text} from 'react-native';
+import { StyleSheet,  View, Text, Button} from 'react-native';
 
 
 export default class DetailsScreen extends React.Component {
@@ -7,10 +7,10 @@ export default class DetailsScreen extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { detailsData:{}}
+
     }
 
-    componentDidMount(){
+ /*   componentDidMount(){
         let url = 'https://api.coinmarketcap.com/v1/ticker/';
         const { params } = this.props.navigation.state;
 
@@ -37,14 +37,14 @@ export default class DetailsScreen extends React.Component {
             });
 
 
-    }
+    }*/
     render() {
 
 
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                 <Text>Details Screen</Text>
-                <Text>rank is: {this.state.detailsData.rank}</Text>
+
 
                 <Button
                     title="Go back"
