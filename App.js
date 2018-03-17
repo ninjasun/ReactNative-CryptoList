@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet,  View ,  FlatList } from 'react-native';
+import { StyleSheet,  View ,  FlatList, Button } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-import CoinContainer from './src/components/CoinContainer'
+import CoinContainer from './src/components/CoinContainer';
+import DetailsScreen from './src/components/screens/DetailsScreen';
+
+import SettingScreen from './src/components/screens/SettingScreen';
+
 
 class HomeScreen extends Component {
 
@@ -38,13 +42,32 @@ class HomeScreen extends Component {
 
 
             <View style={styles.container}>
+                <View style={styles.header}>
+                    header
+                </View>
                 <FlatList
                     data={this.state.dataSource}
                     renderItem={({item}) =>
-                        <CoinContainer name={item.name} symbol={item.symbol} price_usd={item.price_usd} />
+                        <CoinContainer
+                            name={item.name}
+                            symbol={item.symbol}
+                            price_usd={item.price_usd}>
+                            <Button
+                                title="Go to Details... again"
+                                onPress={() => this.props.navigation.navigate('Details',{
+                                    name:item.name,
+                                    price_usd:item.price_usd,
+                                    id:item.id
+                                })}
+                            />
+                        </CoinContainer>
                     }
 
                 />
+                <View style={styles.footer}>
+                    footer
+
+                </View>
             </View>
         );
     }
@@ -57,6 +80,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    header: {
+        height:50,
+        flex:1,
+        backgroundColor: 'black',
+        justifyContent: 'center'
+    },
+    footer:{
+        height:40,
+        flex:1,
+        backgroundColor: 'black',
+        justifyContent: 'center',
+        position:'fixed',
+    }
 
 });
 
@@ -64,7 +100,14 @@ const styles = StyleSheet.create({
 const RootStack = StackNavigator({
     Home:{
         screen: HomeScreen,
-    }
+    },
+    Details: {
+        screen: DetailsScreen,
+    },
+    Settings: {
+        screen: SettingScreen,
+    },
+    initialRouteName: 'Home'
 });
 
 export default class App extends React.Component {

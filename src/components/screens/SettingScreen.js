@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet,  View ,  Text} from 'react-native';
-
+import {   View , StyleSheet, Text} from 'react-native';
 
 
 export default class SettingScreen extends Component {
@@ -22,7 +21,11 @@ export default class SettingScreen extends Component {
 
 
             <View style={styles.container}>
-                <Text>setting page</Text>setting
+                <Text>setting page</Text>
+                <Button
+                    title="Go to Details... again"
+                    onPress={() => this.props.navigation.pop()}
+                />
             </View>
         );
     }

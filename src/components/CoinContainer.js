@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet,  View, Text} from 'react-native';
+import { StyleSheet,  View, Text, TouchableOpacity} from 'react-native';
 
 
 
@@ -15,25 +15,27 @@ export default class CoinContainer extends Component {
 
     }
     componentWillReceiveProps(nextProps){
-       if (this.state.usd_price == nextProps.usd_price){
-           return
-       }
-       else {
-           this.setState({
-               usd_price : nextProps.usd_price
-           })
-       }
+        if (this.state.usd_price == nextProps.usd_price){
+            return
+        }
+        else {
+            this.setState({
+                usd_price : nextProps.usd_price
+            })
+        }
     }
 
     render() {
 
         return (
-        <View style={styles.iconContainer}>
-            <Text>{this.state.name}</Text>
-            <Text>{this.state.symbol}</Text>
+            <View style={styles.iconContainer}>
+                <TouchableOpacity style={styles.button}>
+                    <Text>{this.state.name}</Text>
+                    <Text>{this.state.symbol}</Text>
 
-            <Text>{this.state.price_usd} USD</Text>
-        </View>
+                    <Text>{this.state.price_usd} USD</Text>
+                </TouchableOpacity>
+            </View>
 
 
         );
@@ -46,6 +48,11 @@ const styles = StyleSheet.create({
         backgroundColor: 'red',
         alignItems: 'flex-start'
 
+    },
+    button:{
+        alignItems: 'center',
+        backgroundColor: '#DDDDDD',
+        padding: 10
     },
     horizontal: {
         flexDirection: 'row',
