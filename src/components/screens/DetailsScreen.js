@@ -4,6 +4,13 @@ import { StyleSheet,  View, Text, Button} from 'react-native';
 
 export default class DetailsScreen extends React.Component {
 
+    static navigationOptions = ({ navigation }) => {
+        const { params } = navigation.state;
+
+        return {
+            title: params ? params.name : 'A Nested Details Screen'
+        }
+    };
 
     constructor(props) {
         super(props);

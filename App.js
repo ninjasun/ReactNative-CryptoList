@@ -10,6 +10,9 @@ import DetailsScreen from './src/components/screens/DetailsScreen';
 
 
 class HomeScreen extends Component {
+    static navigationOptions = {
+        title: 'Home',
+    };
 
     constructor(props) {
         super(props);
@@ -99,7 +102,15 @@ const RootStack = StackNavigator({
         screen: DetailsScreen,
     },
 
-    initialRouteName: 'Home'
+    initialRouteName: 'Home',
+    headerStyle: {
+        backgroundColor: '#f4511e',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+        fontWeight: 'bold',
+    },
+
 });
 
 export default class App extends React.Component {
