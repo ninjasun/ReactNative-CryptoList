@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet,  View ,  FlatList, Button , TouchableOpacity} from 'react-native';
+import { StyleSheet,  View ,  Text, Button , TouchableOpacity} from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 //import CoinContainer from './src/components/CoinContainer';
@@ -46,13 +46,14 @@ class HomeScreen extends Component {
             <View style={styles.container}>
 
                 <View>
-                    <Button style={styles.button}
+                    <TouchableOpacity style={styles.button}
                                       title="Go to Details"
                                       onPress={() => {
                                           this.props.navigation.navigate('Details', { name: 'Details' });
                                       }}
                         >
-                    </Button>
+                        <Text>product details</Text>
+                    </TouchableOpacity>
                 </View>
 
             </View>
