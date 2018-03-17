@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { StyleSheet,  View , AppRegistry, ActivityIndicator, FlatList, ScrollView, Image, Text} from 'react-native';
+import { StyleSheet,  View ,  FlatList } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
+import CoinContainer from './src/components/CoinContainer'
 
-
-export default class App extends Component {
+class HomeScreen extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {isLoading: true, dataSource: []};
+        this.state = { dataSource: []};
 
     }
     componentWillMount(){
@@ -18,52 +19,56 @@ export default class App extends Component {
 
             .then((response) => response.json())
             .then((responseJson) => {
-                console.log("responsedata is: ", responseJson)
+
                 this.setState({
-                    isLoading: false,
+
                     dataSource: responseJson,
                 }, function(){
 
                 });
             })
-        .catch((error) => {
+            .catch((error) => {
                 console.error(error);
             });
     }
 
     render() {
 
-    return (
+        return (
 
-        if(this.state.isLoading){
-            return(
-                <View style={[styles.container, styles.horizontal]}>
-                    <ActivityIndicator size="large"  color="#0000ff" />
-                </View>
-            )
-        }
 
-      <View style={styles.container}>
-          <FlatList
-              data={this.state.dataSource}
-              renderItem={({item}) => <Text>{item.name}, {item.symbol}</Text>}
-              keyExtractor={(item, index) => index}
-          />
-      </View>
-    );
-  }
+            <View style={styles.container}>
+                <FlatList
+                    data={this.state.dataSource}
+                    renderItem={({item}) =>
+                        <CoinContainer name={item.name} symbol={item.symbol} price_usd={item.price_usd} />
+                    }
+
+                />
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-    horizontal: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        padding: 10
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+});
+
+
+const RootStack = StackNavigator({
+    Home:{
+        screen: HomeScreen,
     }
 });
+
+export default class App extends React.Component {
+    render(){
+        return <RootStack />;
+    }
+}
