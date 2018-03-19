@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet,  View ,  FlatList } from 'react-native';
+import { StyleSheet,  View ,  FlatList, ActivityIndicator } from 'react-native';
 
 
 import CoinContainer from '../CoinContainer';
@@ -8,13 +8,18 @@ export default class HomeScreen extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { dataSource: []};
+        this.state = { dataSource: [], isLoading : false};
 
     }
     componentWillMount(){
 
     }
     componentDidMount(){
+
+        this.setState({
+            isLoading : true
+        });
+
         return fetch('https://api.coinmarketcap.com/v1/ticker/' )
 
             .then((response) => response.json())
@@ -23,6 +28,7 @@ export default class HomeScreen extends Component {
                 this.setState({
 
                     dataSource: responseJson,
+                    isLoading:false
                 }, function(){
 
                 });
@@ -34,11 +40,11 @@ export default class HomeScreen extends Component {
 
     render() {
         const {navigate }= this.props.navigation;
-        console.log("navigate is: ", navigate);
 
+        const {isLoading} = this.state;
         return (
 
-            <View style={styles.container}>
+            {isLoading} ? <View style={styles.container}>
 
                 <FlatList
                     data={this.state.dataSource}
@@ -56,7 +62,7 @@ export default class HomeScreen extends Component {
 
                 />
 
-            </View>
+            </View> : <ActivityIndicator size="large" color="#0000ff"  />
         );
     }
 }
