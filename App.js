@@ -52,7 +52,7 @@ class HomeScreen extends Component {
                     <TouchableOpacity style={styles.button}
                                       title="Go to Details"
                                       onPress={() => {
-                                          this.props.navigation.navigate('Details', { name: 'Details' });
+                                          this.props.navigation.navigate('Details', { itemId: 86, name: 'Bitccoin Details' });
                                       }}
                         >
                         <Text>product details</Text>
@@ -103,14 +103,15 @@ const RootStack = StackNavigator({
     },
 
     initialRouteName: 'Home',
-    headerStyle: {
-        backgroundColor: '#f4511e',
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-        fontWeight: 'bold',
-    },
-
+    navigationOptions: {
+        headerStyle: {
+            backgroundColor: '#f4511e',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+            fontWeight: 'bold',
+        },
+    }
 });
 
 export default class App extends React.Component {

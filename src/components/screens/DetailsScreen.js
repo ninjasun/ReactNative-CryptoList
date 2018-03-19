@@ -47,13 +47,13 @@ export default class DetailsScreen extends React.Component {
     }*/
     render() {
 
+        const { params } = this.props.navigation.state;
+        const itemId = params ? params.itemId : null;
 
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                 <Text>Details Screen</Text>
-
-
-
+                <Text>itemId: {JSON.stringify(itemId)}</Text>
             </View>
         );
     }
