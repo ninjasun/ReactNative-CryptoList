@@ -22,10 +22,7 @@ export default class SettingScreen extends Component {
 
             <View style={styles.container}>
                 <Text>setting page</Text>
-                <Button
-                    title="Go to Details... again"
-                    onPress={() => this.props.navigation.pop()}
-                />
+
             </View>
         );
     }

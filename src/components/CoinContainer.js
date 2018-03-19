@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet,  View, Text, TouchableOpacity, Button} from 'react-native';
+import { StyleSheet,  View, Text, TouchableOpacity} from 'react-native';
 
 
 
@@ -11,7 +11,8 @@ export default class CoinContainer extends Component {
             name: this.props.name,
             symbol:this.props.symbol,
             price_usd: this.props.price_usd,
-            id:this.props.id
+            id:this.props.id,
+            rank:this.props.rank
         };
 
 
@@ -34,20 +35,23 @@ export default class CoinContainer extends Component {
         const { navigate } = this.props.navigate;
         const _self = this;
 
+        const { name, symbol, price_usd, rank } = this.state;
         return (
             <View style={styles.iconContainer}>
                 <TouchableOpacity
+                    onPress={() => _self.props.navigate('Details',{
+                        name : name,
+                        symbol:symbol,
+                        price_usd: price_usd
+
+                    })}
                     style={styles.button}
                 >
-                    <Text>{this.state.name}</Text>
-                    <Text>{this.state.symbol}</Text>
+                    <Text>{name}</Text>
+                    <Text>{symbol}</Text>
 
-                    <Text>{this.state.price_usd} USD</Text>
-                    <Button
-                        title="Go to Details"
-                        onPress={() => _self.props.navigate('Details')
-                        }
-                    />
+                    <Text>{price_usd} USD</Text>
+
                 </TouchableOpacity>
             </View>
 
