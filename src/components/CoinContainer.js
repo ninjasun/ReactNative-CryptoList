@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet,  View, Text, TouchableOpacity} from 'react-native';
+import { StyleSheet,  View, Text, TouchableOpacity, Button} from 'react-native';
 
 
 
@@ -7,7 +7,12 @@ export default class CoinContainer extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { name: this.props.name, symbol:this.props.symbol, price_usd: this.props.price_usd};
+        this.state = {
+            name: this.props.name,
+            symbol:this.props.symbol,
+            price_usd: this.props.price_usd,
+            id:this.props.id
+        };
 
 
     }
@@ -26,14 +31,23 @@ export default class CoinContainer extends Component {
     }
 
     render() {
+        const { navigate } = this.props.navigate;
+        const _self = this;
 
         return (
             <View style={styles.iconContainer}>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity
+                    style={styles.button}
+                >
                     <Text>{this.state.name}</Text>
                     <Text>{this.state.symbol}</Text>
 
                     <Text>{this.state.price_usd} USD</Text>
+                    <Button
+                        title="Go to Details"
+                        onPress={() => _self.props.navigate('Details')
+                        }
+                    />
                 </TouchableOpacity>
             </View>
 
@@ -64,7 +78,7 @@ const styles = StyleSheet.create({
         width:'100%',
         backgroundColor:'powderblue',
         flex: 1,
-        flexDirection: 'row',
+        flexDirection: 'row'
 
 
     }

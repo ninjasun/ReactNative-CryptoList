@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet,  View ,  FlatList, Button } from 'react-native';
+import { StyleSheet,  View ,  FlatList, Button, Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 import CoinContainer from './src/components/CoinContainer';
@@ -37,37 +37,28 @@ class HomeScreen extends Component {
     }
 
     render() {
-
+        const {navigate }= this.props.navigation;
+        console.log("navigate is: ", navigate);
         return (
 
-
             <View style={styles.container}>
-                <View style={styles.header}>
-                    header
-                </View>
+
                 <FlatList
                     data={this.state.dataSource}
                     renderItem={({item}) =>
                         <CoinContainer
                             name={item.name}
                             symbol={item.symbol}
-                            price_usd={item.price_usd}>
-                            <Button
-                                title="Go to Details... again"
-                                onPress={() => this.props.navigation.navigate('Details',{
-                                    name:item.name,
-                                    price_usd:item.price_usd,
-                                    id:item.id
-                                })}
-                            />
+                            price_usd={item.price_usd}
+                            id={item.id}
+                            navigate={navigate}
+                        >
+
                         </CoinContainer>
                     }
 
                 />
-                <View style={styles.footer}>
-                    footer
 
-                </View>
             </View>
         );
     }
@@ -80,19 +71,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    header: {
-        height:50,
-        flex:1,
-        backgroundColor: 'black',
-        justifyContent: 'center'
-    },
-    footer:{
-        height:40,
-        flex:1,
-        backgroundColor: 'black',
-        justifyContent: 'center',
-        position:'fixed',
-    }
+
 
 });
 

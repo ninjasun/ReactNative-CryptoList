@@ -4,10 +4,13 @@
     <list default="true" id="88f5a058-2f8b-438d-8858-150ee55d812a" name="Default" comment="">
       <change beforePath="" afterPath="$PROJECT_DIR$/src/components/screens/DetailsScreen.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/App.js" afterPath="$PROJECT_DIR$/App.js" />
       <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change beforePath="$PROJECT_DIR$/src/components/CoinContainer.js" afterPath="$PROJECT_DIR$/src/components/CoinContainer.js" />
       <change beforePath="$PROJECT_DIR$/src/components/SettingScreen.js" afterPath="$PROJECT_DIR$/src/components/screens/SettingScreen.js" />
+=======
+>>>>>>> Stashed changes
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -224,7 +227,13 @@
       <option name="presentableId" value="Default" />
       <updated>1521216820808</updated>
       <workItem from="1521216821967" duration="9079000" />
+<<<<<<< Updated upstream
       <workItem from="1521228172232" duration="14490000" />
+=======
+      <workItem from="1521228172232" duration="19238000" />
+      <workItem from="1521477469569" duration="554000" />
+      <workItem from="1521478548533" duration="330000" />
+>>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="&quot;clean readme file&quot;">
       <created>1521220117288</created>
@@ -237,7 +246,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="23569000" />
+=======
+    <option name="totallyTimeSpent" value="29201000" />
+>>>>>>> Stashed changes
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
