@@ -62,9 +62,9 @@ export default class DetailsScreen extends React.Component {
     }
     render() {
 
-        const {name, symbol, usd_price} = this.state;
+        const {name, symbol} = this.state;
         return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <View style={styles.container}>
                 <Text>Details Screen</Text>
                 <Text>name is: {name}</Text>
                 <Text>symbol is: {symbol} </Text>
@@ -73,3 +73,13 @@ export default class DetailsScreen extends React.Component {
         );
     }
 }
+
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+});

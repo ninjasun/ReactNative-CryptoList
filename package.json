@@ -18,11 +18,14 @@
   "jest": {
     "preset": "jest-expo"
   },
+  "rnpm": {
+  "assets": ["./src/assets"]
+},
   "dependencies": {
     "expo": "^25.0.0",
     "react": "16.2.0",
     "react-native": "0.52.0",
-    "react-native-check-box": "^2.1.0",
+    "react-native-material-ui": "^1.20.0",
     "react-navigation": "^1.5.8"
   }
 }

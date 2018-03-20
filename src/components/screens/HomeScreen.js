@@ -31,7 +31,7 @@ export default class HomeScreen extends Component {
 
             .then((response) => response.json())
             .then((responseJson) => {
-                console.log("API return")
+                //console.log("API return")
                 this.setState({
 
                     dataSource: responseJson,
@@ -70,6 +70,7 @@ export default class HomeScreen extends Component {
                 console.error(error);
             });
     }
+    _keyExtractor = (item, index) => item.id;
 
     render() {
         const {navigate }= this.props.navigation;
@@ -77,11 +78,12 @@ export default class HomeScreen extends Component {
         const {isLoading, currency} = this.state;
         return (
 
-            {isLoading} ? <View style={styles.container}>
+                <View style={styles.container}>
 
-                <FlatList
-                    data={this.state.dataSource}
-                    renderItem={( {item}) =>
+                     <FlatList
+                      data={this.state.dataSource}
+                      keyExtractor={this._keyExtractor}
+                      renderItem={( {item}) =>
                         <CoinContainer
                             name={item.name}
                             symbol={item.symbol}
@@ -96,7 +98,7 @@ export default class HomeScreen extends Component {
 
                 />
 
-            </View> : <ActivityIndicator size="large" color="#0000ff"  />
+            </View>
         );
     }
 }
@@ -107,7 +109,5 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-    },
-
-
+    }
 });

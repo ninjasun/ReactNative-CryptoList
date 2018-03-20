@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { StackNavigator, TabBarBottom, TabNavigator } from 'react-navigation';
+
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import DetailsScreen from './src/components/screens/DetailsScreen';
@@ -52,6 +53,20 @@ const Routing =  TabNavigator(
 );
 
 
+import { COLOR, ThemeProvider } from 'react-native-material-ui';
+
+// you can set your style right here, it'll be propagated to application
+const uiTheme = {
+    palette: {
+        primaryColor: COLOR.green500,
+    },
+    toolbar: {
+        container: {
+            height: 50,
+        },
+    },
+};
+
 export default class App extends React.Component {
 //adding data store
     constructor(props) {
@@ -69,6 +84,13 @@ export default class App extends React.Component {
     }
 
     render(){
-        return <Routing screenProps={{currency: this.state.currency, setCurrency : this.setCurrency.bind(this)}}/>;
+        return (
+        <ThemeProvider uiTheme={uiTheme}>
+
+                <Routing screenProps={{currency: this.state.currency, setCurrency : this.setCurrency.bind(this)}}/>
+
+        </ThemeProvider>
+        )
+
     }
 }
