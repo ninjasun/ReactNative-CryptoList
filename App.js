@@ -31,7 +31,7 @@ const Routing =  TabNavigator(
                 let iconName;
                 if (routeName === 'Home') {
                     iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-                } else if (routeName === 'Settings') {
+                } else if (routeName === 'Setting') {
                     iconName = `ios-options${focused ? '' : '-outline'}`;
                 }
 
@@ -51,8 +51,24 @@ const Routing =  TabNavigator(
     }
 );
 
+
 export default class App extends React.Component {
+//adding data store
+    constructor(props) {
+        super(props);
+        this.state = {
+            currency:'EUR'
+        };
+
+    }
+    setCurrency(currency){
+       // let currency = currency | 'USD' //default
+        this.setState({
+            currency : currency
+        })
+    }
+
     render(){
-        return <Routing />;
+        return <Routing screenProps={{currency: this.state.currency, setCurrency : this.setCurrency.bind(this)}}/>;
     }
 }

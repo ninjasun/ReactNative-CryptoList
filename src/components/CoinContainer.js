@@ -10,9 +10,10 @@ export default class CoinContainer extends Component {
         this.state = {
             name: this.props.name,
             symbol:this.props.symbol,
-            price_usd: this.props.price_usd,
+            price: this.props.price,
             id:this.props.id,
-            rank:this.props.rank
+            rank:this.props.rank,
+            currency:this.props.currency
         };
 
 
@@ -35,14 +36,15 @@ export default class CoinContainer extends Component {
         const { navigate } = this.props.navigate;
         const _self = this;
 
-        const { name, symbol, price_usd, rank } = this.state;
+        const { name, symbol, price, currency, rank } = this.state;
         return (
             <View style={styles.iconContainer}>
                 <TouchableOpacity
                     onPress={() => _self.props.navigate('Details',{
                         name : name,
                         symbol:symbol,
-                        price_usd: price_usd
+                        price: price,
+                        currency:currency
 
                     })}
                     style={styles.button}
@@ -50,7 +52,8 @@ export default class CoinContainer extends Component {
                     <Text>{name}</Text>
                     <Text>{symbol}</Text>
 
-                    <Text>{price_usd} USD</Text>
+                    <Text>{price}</Text>
+                    <Text>{currency}</Text>
 
                 </TouchableOpacity>
             </View>

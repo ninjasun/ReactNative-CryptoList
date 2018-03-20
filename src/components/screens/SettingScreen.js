@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {   View , StyleSheet, Text} from 'react-native';
 
+import CheckBox from 'react-native-check-box'
 
 export default class SettingScreen extends Component {
 
@@ -10,7 +11,9 @@ export default class SettingScreen extends Component {
 
     }
     componentWillMount(){
-
+        this.setState({
+           currency:'USD'
+        })
     }
     componentDidMount() {
     }
@@ -22,7 +25,21 @@ export default class SettingScreen extends Component {
 
             <View style={styles.container}>
                 <Text>setting page</Text>
-
+                <Text>Currency: EURO </Text>
+                <CheckBox
+                    style={{flex: 1, padding: 10}}
+                    onClick={()=>this.state.currency == 'USD' ? this.setState({currency:'EUR'}) : this.setState({currency:'USD'})}
+                    isChecked={this.state.currency == 'EUR' ? true : false}
+                    leftText={'EURO'}
+                />
+                <Text>Currency: DOLLARO </Text>
+                <CheckBox
+                    style={{flex: 1, padding: 10}}
+                    onClick={()=>this.setState({currency:'USD'})}
+                    isChecked={this.state.currency == 'USD' ? true : false}
+                    leftText={'DOLLARO'}
+                />
+                <Text>Currency is: {this.state.currency}</Text>
             </View>
         );
     }

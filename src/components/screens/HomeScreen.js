@@ -8,7 +8,11 @@ export default class HomeScreen extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { dataSource: [], isLoading : false};
+        this.state = {
+            dataSource: [],
+            isLoading : false,
+            currency:this.props.screenProps.currency
+        };
 
     }
     componentWillMount(){
@@ -19,8 +23,11 @@ export default class HomeScreen extends Component {
         this.setState({
             isLoading : true
         });
+        let currency = this.props.screenProps.currency;
+        console.log("props in HomeScreen has value: ", this.props.screenProps.currency);
+        let url = "https://api.coinmarketcap.com/v1/ticker/?convert="+currency+"&limit=10";
 
-        return fetch('https://api.coinmarketcap.com/v1/ticker/' )
+        return fetch(url )
 
             .then((response) => response.json())
             .then((responseJson) => {
@@ -41,18 +48,19 @@ export default class HomeScreen extends Component {
     render() {
         const {navigate }= this.props.navigation;
 
-        const {isLoading} = this.state;
+        const {isLoading, currency} = this.state;
         return (
 
             {isLoading} ? <View style={styles.container}>
 
                 <FlatList
                     data={this.state.dataSource}
-                    renderItem={({item}) =>
+                    renderItem={( {item}) =>
                         <CoinContainer
                             name={item.name}
                             symbol={item.symbol}
-                            price_usd={item.price_usd}
+                            currency={currency}
+                            price={currency == 'USD' ? item.price_usd : item.price_eur}
                             id={item.id}
                             navigate={navigate}
                         >
