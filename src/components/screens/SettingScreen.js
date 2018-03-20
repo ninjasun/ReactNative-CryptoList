@@ -12,12 +12,19 @@ export default class SettingScreen extends Component {
     }
     componentWillMount(){
         this.setState({
-           currency:'USD'
+           currency:this.props.screenProps.currency
         })
     }
     componentDidMount() {
     }
 
+    _onPress(value){
+         console.log("checkbox value is: ", value);
+        this.setState({
+            currency:value
+        })
+        this.props.screenProps.setCurrency(value);
+    }
     render() {
 
         return (
@@ -28,14 +35,14 @@ export default class SettingScreen extends Component {
                 <Text>Currency: EURO </Text>
                 <CheckBox
                     style={{flex: 1, padding: 10}}
-                    onClick={()=>this.state.currency == 'USD' ? this.setState({currency:'EUR'}) : this.setState({currency:'USD'})}
+                    onClick={()=>this._onPress('EUR')}
                     isChecked={this.state.currency == 'EUR' ? true : false}
                     leftText={'EURO'}
                 />
                 <Text>Currency: DOLLARO </Text>
                 <CheckBox
                     style={{flex: 1, padding: 10}}
-                    onClick={()=>this.setState({currency:'USD'})}
+                    onClick={()=>this._onPress('USD')}
                     isChecked={this.state.currency == 'USD' ? true : false}
                     leftText={'DOLLARO'}
                 />

@@ -22,12 +22,13 @@ export default class CoinContainer extends Component {
 
     }
     componentWillReceiveProps(nextProps){
-        if (this.state.usd_price == nextProps.usd_price){
+        //console.log("CoinContainer will receive new props: ", nextProps)
+        if (this.state.currency == nextProps.currency){
             return
         }
         else {
             this.setState({
-                usd_price : nextProps.usd_price
+                currency : nextProps.currency
             })
         }
     }

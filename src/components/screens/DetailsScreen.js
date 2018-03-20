@@ -23,11 +23,14 @@ export default class DetailsScreen extends React.Component {
         const symbol = params ? params.symbol : null;
         const id = params ? params.id : null;
         const rank = params ? params.rank : null;
+
+
         this.setState({
             name,
             symbol,
             id,
             rank
+
         });
     }
 

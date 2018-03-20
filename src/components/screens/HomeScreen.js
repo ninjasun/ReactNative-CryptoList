@@ -18,6 +18,33 @@ export default class HomeScreen extends Component {
     componentWillMount(){
 
     }
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            currency:nextProps.screenProps.currency,
+            isLoading:true
+        });
+
+        //fetch again
+        let url = "https://api.coinmarketcap.com/v1/ticker/?convert="+nextProps.screenProps.currency+"&limit=10";
+
+        return fetch(url )
+
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log("API return")
+                this.setState({
+
+                    dataSource: responseJson,
+                    isLoading:false
+                }, function(){
+
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
     componentDidMount(){
 
         this.setState({
@@ -33,7 +60,6 @@ export default class HomeScreen extends Component {
             .then((responseJson) => {
 
                 this.setState({
-
                     dataSource: responseJson,
                     isLoading:false
                 }, function(){
