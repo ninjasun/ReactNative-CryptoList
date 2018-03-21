@@ -80,9 +80,7 @@ export default class HomeScreen extends Component {
         const { currency} = this.state;
         return (
         <CoinContainer
-            name={item.name}
-            symbol={item.symbol}
-            currency={currency}
+           item={item}
             price={currency == 'USD' ? item.price_usd : item.price_eur}
             id={item.id}
             navigate={navigate}

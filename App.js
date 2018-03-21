@@ -17,17 +17,31 @@ import { MaterialIcons } from './src/assets/MaterialIcons.ttf';
 
 import { Ionicons } from './src/assets/Ionicons.ttf';
 
-import {Platform, Dimensions, View, StyleSheet} from 'react-native';
+import {Platform, Dimensions, View, StyleSheet, Text} from 'react-native';
 
 const HomeStack = StackNavigator({
     Home: {
         screen: HomeScreen,
+        navigationOptions: ({ navigation }) => ({
+            title: 'Crypto List',
+            headerStyle:{
+                backgroundColor:'#4caf50',
+            },
+            headerTintColor:'#FFF',
+            headerBackTitleStyle:'#FFF'
+        }),
 
     },
     Details: {
         screen: DetailsScreen,
         navigationOptions: ({ navigation }) => ({
-            title: `${navigation.state.params.name}'s Profile'`,
+            title: `${navigation.state.params.name}`,
+            headerRight:<Text>Ciao</Text>,
+            headerStyle:{
+                backgroundColor:'#4caf50',
+            },
+            headerTintColor:'#FFF',
+            headerBackTitleStyle:'#FFF'
         }),
 
     }
@@ -36,11 +50,17 @@ const HomeStack = StackNavigator({
 const SettingStack = StackNavigator({
     Setting : {
         screen: SettingScreen,
+        navigationOptions: ({ navigation }) => ({
+            title: 'Settings',
+            headerRight:<Text>Ciao</Text>,
+            headerStyle:{
+                backgroundColor:'#4caf50'
+            },
+            headerTintColor:'#FFF'
+        }),
 
     }
 });
-
-
 
 
 const RouteConfigs =
@@ -62,12 +82,12 @@ const RouteConfigs =
     };
 const TabNavigatorConfig =
     {
-    headerMode: 'none',        // I don't want a NavBar at top
     tabBarOption:{
-        style:{
-            backgroundColor:'#4caf50'
-        },
+
         inactiveTintColor:'#DDD',
+        tabStyle:{
+          backgroundColor:'4caf50'
+        },
         labelStyle: {
             fontSize: 12,
         },
