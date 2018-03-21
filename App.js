@@ -82,11 +82,16 @@ const RouteConfigs =
     };
 const TabNavigatorConfig =
     {
-    tabBarOption:{
+    tabBarOptions:{
 
         inactiveTintColor:'#DDD',
-        tabStyle:{
-          backgroundColor:'4caf50'
+
+        style:{
+            backgroundColor:'#4caf50',
+        },
+        indicatorStyle:{
+            backgroundColor:'#FFF',
+            borderColor:'#FFF'
         },
         labelStyle: {
             fontSize: 12,
