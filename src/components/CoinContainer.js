@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet,  View, Text, TouchableOpacity} from 'react-native';
 
-
+import { Card } from 'react-native-material-ui';
 
 export default class CoinContainer extends Component {
 
@@ -34,12 +34,12 @@ export default class CoinContainer extends Component {
     }
 
     render() {
-        const { navigate } = this.props.navigate;
+
         const _self = this;
 
         const { name, symbol, price, currency, rank } = this.state;
         return (
-            <View style={styles.iconContainer}>
+                <View>
                 <TouchableOpacity
                     onPress={() => _self.props.navigate('Details',{
                         name : name,
@@ -48,44 +48,25 @@ export default class CoinContainer extends Component {
                         currency:currency
 
                     })}
-                    style={styles.button}
-                >
-                    <Text>{name}</Text>
-                    <Text>{symbol}</Text>
+                    style={styles.card}>
+                    <Text style={styles.font}>{name}</Text>
+                    <Text style={styles.font}>{symbol}</Text>
 
-                    <Text>{price}</Text>
-                    <Text>{currency}</Text>
-
+                    <Text style={styles.font}>{price}</Text>
+                    <Text style={styles.font}>{currency}</Text>
                 </TouchableOpacity>
-            </View>
-
-
+                </View>
         );
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'flex-start'
+const styles =  Object.create({
+    font:{
+        color:'white'
     },
-    button:{
-        alignItems: 'center',
-        backgroundColor: '#DDDDDD',
-        padding: 10
-    },
-    horizontal: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        padding: 10
-    },
-    iconContainer:{
-        padding:10,
-        width:'100%',
-        backgroundColor:'powderblue',
-        flex: 1,
-        flexDirection: 'row'
-
-
+    card:{
+        backgroundColor:'#424242',
+        padding: 10,
+        margin:10
     }
 });

@@ -35,9 +35,8 @@ export default class SettingScreen extends Component {
 
         return (
 
-        <View style={styles.container}>
-
-                <View style={{width: 100, height: 100}}>
+            <View>
+                <View style={{width: '50%', height: 100}}>
                     <Text>Euro</Text>
                     <RadioButton
                         label=""
@@ -48,7 +47,7 @@ export default class SettingScreen extends Component {
 
                     />
                 </View>
-                <View style={{width: 100, height: 100}}>
+                <View style={{width: '50%', height: 100}}>
                     <Text>Dollar</Text>
                     <RadioButton
                         checked={this.state.currency == 'USD' ? true : false}
@@ -59,30 +58,12 @@ export default class SettingScreen extends Component {
 
                     />
                 </View>
-        </View>
+            </View>
         )
     }
 }
 
-/*
- <View style={styles.col}>
 
-                    <RadioButton
-                        label="EURO"
-                        checked={this.state.currency == 'EUR'? true : false}
-                        value="Value"
-                        onCheck={this._onChecked('USD')}
-                    />
-                </View>
-                <View style={styles.col}>
-                    <RadioButton
-                        label="DOLLARO"
-                        checked={this.state.currency == 'USD'? true : false}
-                        value="Value"
-                        onCheck={this._onChecked('USD')}
-                    />
-                </View>
- */
 
 const styles = StyleSheet.create({
     row:{
@@ -94,7 +75,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
-        backgroundColor: '#fff',
+        backgroundColor: '#5c5c5c',
         alignItems: 'center',
         justifyContent: 'center',
     }

@@ -1,8 +1,11 @@
 import React from 'react';
 
-import { StackNavigator, TabBarBottom, TabNavigator } from 'react-navigation';
+//TabBarTop default android
+//TabBarBottom default iOs
 
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { StackNavigator, TabBarTop, TabNavigator } from 'react-navigation';
+
+//import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import DetailsScreen from './src/components/screens/DetailsScreen';
 
@@ -10,48 +13,73 @@ import SettingScreen from './src/components/screens/SettingScreen';
 
 import HomeScreen from './src/components/screens/HomeScreen';
 
+import { MaterialIcons } from './src/assets/MaterialIcons.ttf';
+
+import { Ionicons } from './src/assets/Ionicons.ttf';
+
+import {Platform, Dimensions, View, StyleSheet} from 'react-native';
 
 const HomeStack = StackNavigator({
-    Home: { screen: HomeScreen },
-    Details: {screen: DetailsScreen }
+    Home: {
+        screen: HomeScreen,
+
+    },
+    Details: {
+        screen: DetailsScreen,
+        navigationOptions: ({ navigation }) => ({
+            title: `${navigation.state.params.name}'s Profile'`,
+        }),
+
+    }
 });
 
 const SettingStack = StackNavigator({
-    Setting : {screen: SettingScreen}
+    Setting : {
+        screen: SettingScreen,
+
+    }
 });
 
-const Routing =  TabNavigator(
-    {
-        Home: { screen: HomeStack },
-        Setting: { screen: SettingStack },
-    },
-    {
-        navigationOptions: ({ navigation }) => ({
-            tabBarIcon: ({ focused, tintColor }) => {
-                const { routeName } = navigation.state;
-                let iconName;
-                if (routeName === 'Home') {
-                    iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-                } else if (routeName === 'Setting') {
-                    iconName = `ios-options${focused ? '' : '-outline'}`;
-                }
 
-                // You can return any component that you like here! We usually use an
-                // icon component from react-native-vector-icons
-                return <Ionicons name={iconName} size={25} color={tintColor} />;
+
+
+const RouteConfigs =
+    {
+        Home: {
+            screen: HomeStack,
+            navigationOptions: {
+                tabBarLabel: 'HOME',
+
             },
-        }),
-        tabBarOptions: {
-            activeTintColor: 'tomato',
-            inactiveTintColor: 'gray',
         },
-        tabBarComponent: TabBarBottom,
-        tabBarPosition: 'bottom',
+        Setting: {
+            screen: SettingStack,
+            navigationOptions: {
+                tabBarLabel: 'SETTING',
+
+            },
+        }
+    };
+const TabNavigatorConfig =
+    {
+    headerMode: 'none',        // I don't want a NavBar at top
+    tabBarOption:{
+        style:{
+            backgroundColor:'#4caf50'
+        },
+        inactiveTintColor:'#DDD',
+        labelStyle: {
+            fontSize: 12,
+        },
+    }   ,
+    tabBarPosition: 'bottom',  // So your Android tabs go bottom
+        tabBarComponent: TabBarTop ,
         animationEnabled: true,
         swipeEnabled: true,
-    }
-);
 
+    };
+
+const Tabs =  TabNavigator( RouteConfigs, TabNavigatorConfig);
 
 import { COLOR, ThemeProvider } from 'react-native-material-ui';
 
@@ -60,11 +88,7 @@ const uiTheme = {
     palette: {
         primaryColor: COLOR.green500,
     },
-    toolbar: {
-        container: {
-            height: 50,
-        },
-    },
+
 };
 
 export default class App extends React.Component {
@@ -84,13 +108,26 @@ export default class App extends React.Component {
     }
 
     render(){
+        let width = Dimensions.get('window').width;
+        styles.container.width = width;
+
+
         return (
         <ThemeProvider uiTheme={uiTheme}>
-
-                <Routing screenProps={{currency: this.state.currency, setCurrency : this.setCurrency.bind(this)}}/>
-
+                <View style={styles.container}>
+                 <Tabs screenProps={{currency: this.state.currency, setCurrency : this.setCurrency.bind(this)}}/>
+                </View>
         </ThemeProvider>
         )
 
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#616161',
+
+
+    }
+});

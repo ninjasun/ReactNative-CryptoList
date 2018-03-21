@@ -4,6 +4,8 @@ import { StyleSheet,  View ,  FlatList, ActivityIndicator } from 'react-native';
 
 import CoinContainer from '../CoinContainer';
 
+
+
 export default class HomeScreen extends Component {
 
     constructor(props) {
@@ -72,33 +74,30 @@ export default class HomeScreen extends Component {
     }
     _keyExtractor = (item, index) => item.id;
 
-    render() {
+    _renderItem  = ({item}) => {
         const {navigate }= this.props.navigation;
 
-        const {isLoading, currency} = this.state;
+        const { currency} = this.state;
         return (
+        <CoinContainer
+            name={item.name}
+            symbol={item.symbol}
+            currency={currency}
+            price={currency == 'USD' ? item.price_usd : item.price_eur}
+            id={item.id}
+            navigate={navigate}
+        />)
+};
 
-                <View style={styles.container}>
-
+    render() {
+         return (
+             <View>
                      <FlatList
                       data={this.state.dataSource}
                       keyExtractor={this._keyExtractor}
-                      renderItem={( {item}) =>
-                        <CoinContainer
-                            name={item.name}
-                            symbol={item.symbol}
-                            currency={currency}
-                            price={currency == 'USD' ? item.price_usd : item.price_eur}
-                            id={item.id}
-                            navigate={navigate}
-                        >
-
-                        </CoinContainer>
-                    }
-
+                      renderItem={this._renderItem}
                 />
-
-            </View>
+             </View>
         );
     }
 }
@@ -106,8 +105,8 @@ export default class HomeScreen extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        backgroundColor: '#5c5c5c',
+        width:400
+
     }
 });
