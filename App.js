@@ -19,11 +19,14 @@ import { Ionicons } from './src/assets/Ionicons.ttf';
 
 import {Platform, Dimensions, View, StyleSheet, Text} from 'react-native';
 
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 const HomeStack = StackNavigator({
     Home: {
         screen: HomeScreen,
         navigationOptions: ({ navigation }) => ({
             title: 'Crypto List',
+            headerRight: <Icon name="more-vert" size={24} color="#FFF" />,
             headerStyle:{
                 backgroundColor:'#4caf50',
             },
@@ -36,7 +39,7 @@ const HomeStack = StackNavigator({
         screen: DetailsScreen,
         navigationOptions: ({ navigation }) => ({
             title: `${navigation.state.params.name}`,
-            headerRight:<Text>Ciao</Text>,
+            headerRight: <Icon name="more-vert" size={24} color="#FFF" />,
             headerStyle:{
                 backgroundColor:'#4caf50',
             },
@@ -52,7 +55,7 @@ const SettingStack = StackNavigator({
         screen: SettingScreen,
         navigationOptions: ({ navigation }) => ({
             title: 'Settings',
-            headerRight:<Text>Ciao</Text>,
+            headerRight: <Icon name="more-vert" size={24} color="#FFF" />,
             headerStyle:{
                 backgroundColor:'#4caf50'
             },
