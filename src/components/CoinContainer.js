@@ -29,9 +29,7 @@ export default class CoinContainer extends Component {
         }
     }
     getLastUpdated(time){
-        //console.log("time is: ", time);
-        //convert to
-
+       //TO DO AS BACKGROUND CHECK
         return time
     }
     render() {
@@ -56,6 +54,9 @@ export default class CoinContainer extends Component {
 
         let priceString = currency + priceFloated;
 
+        let percent_change_1h_style = percent_change_1h > 0 ? 'green' : 'red';
+        let percent_change_24h_style = percent_change_24h > 0 ? 'green' : 'red';
+
         return (
                 <View>
                 <TouchableOpacity
@@ -74,8 +75,8 @@ export default class CoinContainer extends Component {
 
                     </View>
                     <View style={styles.right}>
-                        <Text style={styles.font}>1h {percent_change_1h}</Text>
-                        <Text style={styles.font}>24h {percent_change_24h}</Text>
+                        <Text style={{color:percent_change_1h_style }}>1h   {percent_change_1h}</Text>
+                        <Text style={{color:percent_change_24h_style}}>24h  {percent_change_24h}</Text>
                         <Text style={styles.font}>last update: {this.getLastUpdated(last_updated)}</Text>
                     </View>
 
