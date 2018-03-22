@@ -75,8 +75,8 @@ export default class CoinContainer extends Component {
 
                     </View>
                     <View style={styles.right}>
-                        <Text style={{color:percent_change_1h_style }}>1h   {percent_change_1h}</Text>
-                        <Text style={{color:percent_change_24h_style}}>24h  {percent_change_24h}</Text>
+                        <Text style={{color:percent_change_1h_style }}>  {percent_change_1h}% 1h) (1h)</Text>
+                        <Text style={{color:percent_change_24h_style}}>  {percent_change_24h}% (24h)</Text>
                         <Text style={styles.font}>last update: {this.getLastUpdated(last_updated)}</Text>
                     </View>
 
