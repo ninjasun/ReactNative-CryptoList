@@ -70,7 +70,7 @@ export default class CoinContainer extends Component {
                 >
                     <View style={styles.left}>
                         <Text style={styles.fontSize}>{name} ({symbol})</Text>
-                        <Text style={styles.font}>{priceString}</Text>
+                        <Text style={styles.price}>{priceString}</Text>
 
                     </View>
                     <View style={styles.right}>
@@ -98,16 +98,24 @@ const styles =  Object.create({
         padding: 10,
         margin:10,
         display:'flex',
+
         flexDirection:'row'
     },
     left:{
         width:'50%',
         alignSelf:'flex-start',
-        justifyContent:'flex-start'
+        justifyContent:'space-between',
+
+    },
+    price:{
+      fontSize:20,
+      flexDirection:'column',
+      color:'#FFF',
+      justifyContent:'flex-end',
     },
     right:{
-        alignSelf:'flex-end',
+        alignItems:'flex-end',
         width:'50%',
-        justifyContent:'flex-end'
+
     }
 });

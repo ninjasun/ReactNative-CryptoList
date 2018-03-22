@@ -55,6 +55,7 @@ export default class HomeScreen extends Component {
         });
         let currency = this.props.screenProps.currency;
         //console.log("props in HomeScreen has value: ", this.props.screenProps.currency);
+
         let currencyString = currency == '$' ? "USD" : 'EUR';
         let url = "https://api.coinmarketcap.com/v1/ticker/?convert="+currencyString;
 
@@ -80,7 +81,8 @@ export default class HomeScreen extends Component {
         const {navigate }= this.props.navigation;
 
         const { currency} = this.state;
-        console.log("Currency is: ". currency)
+    //
+        //   console.log("Currency is: ". currency)
         return (
         <CoinContainer
            item={item}
