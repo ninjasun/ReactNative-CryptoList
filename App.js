@@ -124,12 +124,11 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            currency:'EUR'
+            currency:'€'
         };
 
     }
     setCurrency(currency){
-       // let currency = currency | 'USD' //default
         this.setState({
             currency : currency
         })

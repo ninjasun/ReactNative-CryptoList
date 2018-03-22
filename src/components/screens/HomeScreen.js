@@ -27,7 +27,8 @@ export default class HomeScreen extends Component {
         });
 
         //fetch again
-        let url = "https://api.coinmarketcap.com/v1/ticker/?convert="+nextProps.screenProps.currency+"&limit=10";
+        let currencyString = this.state.currency == '$' ? "USD" : 'EUR';
+        let url = "https://api.coinmarketcap.com/v1/ticker/?convert="+currencyString+"&limit=10";
 
         return fetch(url )
 
@@ -53,8 +54,9 @@ export default class HomeScreen extends Component {
             isLoading : true
         });
         let currency = this.props.screenProps.currency;
-        console.log("props in HomeScreen has value: ", this.props.screenProps.currency);
-        let url = "https://api.coinmarketcap.com/v1/ticker/?convert="+currency+"&limit=10";
+        //console.log("props in HomeScreen has value: ", this.props.screenProps.currency);
+        let currencyString = currency == '$' ? "USD" : 'EUR';
+        let url = "https://api.coinmarketcap.com/v1/ticker/?convert="+currencyString;
 
         return fetch(url )
 
@@ -78,10 +80,11 @@ export default class HomeScreen extends Component {
         const {navigate }= this.props.navigation;
 
         const { currency} = this.state;
+        console.log("Currency is: ". currency)
         return (
         <CoinContainer
            item={item}
-            price={currency == 'USD' ? item.price_usd : item.price_eur}
+           currency={currency}
             id={item.id}
             navigate={navigate}
         />)
